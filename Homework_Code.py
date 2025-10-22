@@ -23,10 +23,31 @@ for item, price in menu.items():
 # Step 4: Ask the user how many of that item they want
 
 
-choice = input("Which item would you like? ")
+order = []
+total = 0
 
-if choice in menu:
-    quantity = int(input(f"How many {choice}s would you like? "))
-    total = menu[choice] * quantity
-else:
-    print("Sorry, that item isn't on the menu.")
+while True:
+    choice = input("🩷 Which item would you like?🩷 ").strip()
+    if choice in menu:
+        quantity = int(input(f"How many {choice}s would you like? ").strip())
+        order.append(f"{quantity} x {choice}")
+        total += menu[choice] * quantity
+    else:
+        print("🥺 Sorry, that item isn't on the menu.🥺")
+    
+    another = input("🩷 Would you like to order another item? (yes/no): ").strip().lower()
+    if another != "yes":
+        break
+
+print("Your order:")
+for item in order:
+    print("-", item)
+
+print(f"Total: £{total / 100:.2f}")
+
+
+message = "Thank you for choosing this cafe 💖☕✨"
+
+cutesy_message = f"""★｡.*☆ {message} ☆*｡★"""
+
+print(cutesy_message)
