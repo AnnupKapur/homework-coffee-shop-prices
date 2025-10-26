@@ -1,3 +1,12 @@
+# TASK - ALLOW USER TO INPUT CHOICE IN ANY CASE
+#      - (UPPER-CASE, LOWER-CASE, MIXED-CASE)
+#      - PERFORM THE CHECK FUNCTIONALLY
+#      - E.G. INPUTS TO FUNCTION MENU-ITEM AND ORDER-ITEM
+#             - IF THEY ARE THE SAME (REGARDLESS OF CASE) - True
+#             - ELSE - False
+
+def check_menu_item(menu_item, order_item):
+
 def pence_to_pound(pence):
     return f"£{pence / 100:.2f}"
 
