@@ -1,3 +1,12 @@
+def pence_to_pound(pence):
+    return f"£{pence / 100:.2f}"
+
+def calculate_total(menu, order):
+    total_pence = 0
+    for row in order:
+        total_pence = row["quantity"] * menu[row["item"]]
+    return total_pence
+
 # Step 1: Create a café menu with prices
 menu = {
     "Espresso": 200,
@@ -8,7 +17,7 @@ menu = {
     "Macchiato": 330,
     "Flat White": 300,
     "Hot Chocolate": 280,
-    "Tea": 180
+    "Tea": 180,
 }
 
 # Step 2: Print the menu
@@ -17,37 +26,34 @@ print("----------------------------")
 print("Drinks Menu:")
 
 for item, price in menu.items():
-    print(f"{item:15} {price}p")
+    print(f"{item:15}: {pence_to_pound(price)}")
 
 # Step 3: Ask the user for which item they want
 # Step 4: Ask the user how many of that item they want
 
-
 order = []
-total = 0
 
 while True:
+    another = "yes"
     choice = input("🩷 Which item would you like?🩷 ").strip()
+
     if choice in menu:
         quantity = int(input(f"How many {choice}s would you like? ").strip())
-        order.append(f"{quantity} x {choice}")
-        total += menu[choice] * quantity
+
+        new_order_item = { "item": choice, "quantity": quantity }
+        order.append(new_order_item)
+
+        another = input("🩷 Would you like to order another item? (yes/no): ").strip().lower()
     else:
         print("🥺 Sorry, that item isn't on the menu.🥺")
     
-    another = input("🩷 Would you like to order another item? (yes/no): ").strip().lower()
     if another != "yes":
         break
 
 print("Your order:")
-for item in order:
-    print("-", item)
+for row in order:
+    print(f"- {row["quantity"]} x {row["item"]}")
 
-print(f"Total: £{total / 100:.2f}")
+print(f"Total: {pence_to_pound(calculate_total(menu, order))}")
 
-
-message = "Thank you for choosing this cafe 💖☕✨"
-
-cutesy_message = f"""★｡.*☆ {message} ☆*｡★"""
-
-print(cutesy_message)
+print("★｡.*☆ Thank you for choosing this cafe 💖☕✨ ☆*｡★");
