@@ -7,7 +7,7 @@
 #
 #
 
-def check_menu_item(menu_item, order_item):
+# def check_menu_item(menu_item, order_item):
 
 def pence_to_pound(pence):
     return f"£{pence / 100:.2f}"
