@@ -4,6 +4,8 @@
 #      - E.G. INPUTS TO FUNCTION MENU-ITEM AND ORDER-ITEM
 #             - IF THEY ARE THE SAME (REGARDLESS OF CASE) - True
 #             - ELSE - False
+#
+#
 
 def check_menu_item(menu_item, order_item):
 
